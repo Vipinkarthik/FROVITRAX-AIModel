@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: frovitrax-ai
+    env: python
+    buildCommand: pip install -r aiservice/requirements.txt
+    startCommand: uvicorn aiservice.main:app --host 0.0.0.0 --port 10000
