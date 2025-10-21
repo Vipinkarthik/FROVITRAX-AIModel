@@ -8,6 +8,11 @@ app = FastAPI()
 xgb_model = joblib.load("qa_xgboost_model.pkl")
 le = joblib.load("product_type_encoder.pkl")
 
+@app.get("/")
+def root():
+    return {"message": "FROVITRAX AI Model API is running!"}
+
+
 @app.post("/predict")
 async def predict(
     file: UploadFile = File(...),
